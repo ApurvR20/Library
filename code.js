@@ -1,11 +1,14 @@
 let myLibrary = [];
 let count = 0;
-function Book(name,author,pages,read_status,id) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read_status = read_status;
-  this.id = id;
+
+class Book{
+    constructor(name,author,pages,read_status,id){
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.read_status = read_status;
+        this.id = id;
+    }
 }
 
 const table = document.querySelector('tbody');
@@ -13,6 +16,7 @@ function addBookToLibrary(name,author,pages,read_status,id) {
     const book = new Book(name,author,pages,read_status,id);
     myLibrary.push(book);
     count++;
+    console.log(...myLibrary);
 }
 
 const id = 0;
@@ -58,6 +62,7 @@ submit.addEventListener('click', (e)=>{
 
         
         myLibrary[i].read_status = read.checked;
+        console.log(...myLibrary);
     })
 
     const del_cell = document.createElement('td');
